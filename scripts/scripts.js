@@ -26,3 +26,34 @@ let debtToValueRatio = (1 - (downPayment / finalPrize)).toFixed(2);
 let debtToSalaryFactor = (debt / (12 * combinedPretaxSalary)).toFixed(1);
 
 // Checks and tests
+console.log(`Belåningsgrad: ${debtToValueRatio * 100}%`);
+console.log(`skuldkvot: ${debtToSalaryFactor}`);
+
+
+let amortizationRate = 0;
+
+if (debtToValueRatio > highdebtToValueThreshold) {
+    console.log('Belåningsgrad över 70%');
+    amortizationRate += 2;
+} else if (debtToValueRatio > lowDebtToValueThreshold) {
+    console.log('Belåningsgrad över 70%');
+    amortizationRate += 1;
+} else {
+    console.log('Belåningsgrad under 50%');
+}
+
+console.log(`Årlig amortering efter belåningsgrad: ${amortizationRate}%`);
+
+if (debtToSalaryFactor > debtToSalaryThreshold) {
+    console.log('Skuldkvot över 4.5');
+    amortizationRate += 1;
+}
+
+let yearlyInterest = interestRate * debt;
+let yearlyAmortization = (amortizationRate / 100) * debt;
+let totalMonthlyCost = ((yearlyInterest + yearlyAmortization) / 12).toFixed(0);
+console.log(`Månadskostnad: ${totalMonthlyCost}`);
+
+let stampTax = 0.015 * Math.max(finalPrize, taxationValue) + stampFee + 0.02 * (debt - mortgage);
+
+console.log(`Stämpelskatt: ${stampTax}`);

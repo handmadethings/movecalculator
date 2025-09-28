@@ -4,7 +4,8 @@
 * Set up html skeleton in index.html
 * Add base styles in styles/styles.css
 * Add scripts
-* Separate html files for each type pf calculation?
+* Fix number formating for swedish locale
+* Separate html files for each type of calculation?
 * Domain name
 * Google adsense integration
 
