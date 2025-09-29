@@ -6,11 +6,14 @@
 * Add scripts
 * Fix number formating for swedish locale
 * Separate html files for each type of calculation?
+* Design: pick brand colors etc
 * Domain name
 * Google adsense integration
+* PWA features
 
 ## Dones
 * git setup, including github
+* Navbar working
 
 
 ## Resources

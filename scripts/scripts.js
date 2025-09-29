@@ -1,5 +1,21 @@
 console.log("Script loaded");
 
+// NAVBAR
+const navbarToggle = navbar.querySelector('#navbar-toggle');
+const navbarMenu = document.querySelector('#navbar-menu');
+const navbarLinksContainer = navbarMenu.querySelector('.navbar-links');
+let isNavbarExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+
+function toggleNavbarVisibility() {
+  isNavbarExpanded = !isNavbarExpanded;
+  navbarToggle.setAttribute('aria-expanded', isNavbarExpanded);
+};
+
+navbarToggle.addEventListener('click', toggleNavbarVisibility);
+navbarLinksContainer.addEventListener('click', (e) => e.stopPropagation());
+navbarMenu.addEventListener('click', toggleNavbarVisibility);
+
+// MAIN APP
 // Constants
 const highdebtToValueThreshold = 70 / 100;
 const lowDebtToValueThreshold = 50 / 100;
