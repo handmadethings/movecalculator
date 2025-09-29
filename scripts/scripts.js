@@ -73,3 +73,9 @@ console.log(`Månadskostnad: ${totalMonthlyCost}`);
 let stampTax = 0.015 * Math.max(finalPrize, taxationValue) + stampFee + 0.02 * (debt - mortgage);
 
 console.log(`Stämpelskatt: ${stampTax}`);
+
+// Helpers
+
+// Functions
+
+// Init and event listeners
