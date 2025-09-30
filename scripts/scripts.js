@@ -22,6 +22,7 @@ const highdebtToValueThreshold = 70 / 100;
 const lowDebtToValueThreshold = 50 / 100;
 const debtToSalaryThreshold = 4.5;
 const stampFee = 825;
+const noOfApplicantsFields = 1;
 
 // Constant DOM elements
 const purchaseForm = document.getElementById('purchase-calculator-form');
@@ -81,13 +82,18 @@ console.log(`Stämpelskatt: ${stampTax}`);
 
 // Functions
 function createNewApplicantField() {
-    console.log('Adding new appliant field');
+    console.log('Adding new applicant field');
 
     // How to dynamically add incremented id, e.g. monthly-salary-2, to label and input?
     // https://stackoverflow.com/questions/14107817/using-javascript-to-dynamically-create-dom-elements-with-incrementing-ids
     const newLabel = document.createElement('label');
+    newLabel.for = `monthly-salary-${noOfApplicantsFields}`;
+    // newLabel.classList.add('')
     const newInput = document.createElement('input');
-
+    newInput.id = `monthly-salary-${noOfApplicantsFields}`;
+    newInput.type = 'number';
+    newInput.inputmode = 'numeric';
+    noOfApplicantsFields += 1;
 };
 
 function updateCalculation() {
