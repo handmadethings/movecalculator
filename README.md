@@ -2,10 +2,13 @@
 
 ## Todos
 * Set up html skeleton in index.html
-* Add base styles in styles/styles.css
+* [FIeld sets](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form)
+* [Localized number input](https://stackoverflow.com/questions/13412204/localization-of-input-type-number)
 * Add scripts
 * Fix number formating for swedish locale
-* Separate html files for each type of calculation?
+* Separate html files for each type of calculation
+* Separate html file with wiki over different terms, instructions etc. # for headings to link from main document/forms
+* Tooltips
 * Design: pick brand colors etc
 * Domain name
 * Google adsense integration
@@ -13,12 +16,12 @@
 
 ## Dones
 * git setup, including github
-* Navbar working
+* [Navbar](https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-tutorial/) working
+* Added base styles in styles/styles.css
 
 
 ## Resources
 ### Design
-* [Navbar](https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-tutorial/)
 * [You don't need Bootstrap](https://davidhartsough.com/you-dont-need-bootstrap/)
 * [You don't need Bootstrap](https://github.com/davidhartsough/you-dont-need-bootstrap)
 * [Tooltips](https://www.w3schools.com/howto/howto_css_tooltip.asp)

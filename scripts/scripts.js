@@ -14,15 +14,20 @@ function toggleNavbarVisibility() {
 navbarToggle.addEventListener('click', toggleNavbarVisibility);
 navbarLinksContainer.addEventListener('click', (e) => e.stopPropagation());
 navbarMenu.addEventListener('click', toggleNavbarVisibility);
+// END NAVBAR
 
 // MAIN APP
-// Constants
+// Constant values
 const highdebtToValueThreshold = 70 / 100;
 const lowDebtToValueThreshold = 50 / 100;
 const debtToSalaryThreshold = 4.5;
 const stampFee = 825;
 
-// From Form Fields
+// Constant DOM elements
+const purchaseForm = document.getElementById('purchase-calculator-form');
+const addApplicantBtn = document.getElementById('add-applicant-btn');
+
+// variables from Form Fields
 // NB: placeholder values for now, replace with form field values
 let interestRate = 3 / 100;
 let monthlyPretaxSalary = [4000, 35000];
@@ -77,5 +82,21 @@ console.log(`Stämpelskatt: ${stampTax}`);
 // Helpers
 
 // Functions
+function createNewApplicantField() {
+    console.log('Adding new appliant field');
+
+};
+
+function updateCalculation() {
+    console.log('Calculation updated (by function)');
+}
+
 
 // Init and event listeners
+addApplicantBtn.addEventListener('click', function(event) {
+    createNewApplicantField();
+})
+
+purchaseForm.addEventListener('change', function(event) {
+    updateCalculation();
+})
