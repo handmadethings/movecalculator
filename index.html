@@ -52,10 +52,12 @@
                 stämpelskatt med mera?
             </p>
             <h2>Formuläret</h2>
-            <form id="purchase-calculator-form">
-                <label for="monthly-salary-1">Månadslön för sökande 1</label>
+           <form id="purchase-calculator-form">
+            <div id="applicants-fields">
+                <label for="monthly-salary-1">Månadslön för sökande</label>
                 <input id="monthly-salary-1" type="number" inputmode="numeric" placeholder=0>
-                <input type="button" id="add-applicant-btn" value="Lägg till" class="button">
+            </div>
+                <input type="button" id="add-applicant-btn" value="Lägg till medsökande" class="button">
 
                 <label for="interest-rate">Ränta</label>
                 <input id="interest-rate" type="number" inputmode="numeric" placeholder=0>
@@ -66,7 +68,6 @@
                 <label for="down-payment">Eget kapital</label>
                 <input id="down-payment" type="number" inputmode="numeric" placeholder=0>
 
-                
             </form>
         </main>
     </body>

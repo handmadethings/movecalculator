@@ -84,17 +84,23 @@ console.log(`Stämpelskatt: ${stampTax}`);
 
 // Functions
 function createNewApplicantField() {
+    if (noOfApplicantsFields > 3) {
+        return;
+    }
     console.log('Adding new applicant field');
+    let applicantsFieldsdiv = document.getElementById('applicants-fields');
 
-    // How to dynamically add incremented id, e.g. monthly-salary-2, to label and input?
-    // https://stackoverflow.com/questions/14107817/using-javascript-to-dynamically-create-dom-elements-with-incrementing-ids
     const newLabel = document.createElement('label');
     newLabel.for = `monthly-salary-${noOfApplicantsFields}`;
+    newLabel.textContent = `Månadslön för medsökande ${noOfApplicantsFields}`;
     // newLabel.classList.add('')
     const newInput = document.createElement('input');
     newInput.id = `monthly-salary-${noOfApplicantsFields}`;
     newInput.type = 'number';
     newInput.inputmode = 'numeric';
+    newInput.placeholder = 0;
+    applicantsFieldsdiv.appendChild(newLabel);
+    applicantsFieldsdiv.appendChild(newInput);
     noOfApplicantsFields += 1;
 };
 
