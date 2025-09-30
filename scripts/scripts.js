@@ -79,11 +79,14 @@ let stampTax = 0.015 * Math.max(finalPrize, taxationValue) + stampFee + 0.02 * (
 
 console.log(`Stämpelskatt: ${stampTax}`);
 
-// Helpers
-
 // Functions
 function createNewApplicantField() {
     console.log('Adding new appliant field');
+
+    // How to dynamically add incremented id, e.g. monthly-salary-2, to label and input?
+    // https://stackoverflow.com/questions/14107817/using-javascript-to-dynamically-create-dom-elements-with-incrementing-ids
+    const newLabel = document.createElement('label');
+    const newInput = document.createElement('input');
 
 };
 
