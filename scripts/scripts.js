@@ -22,7 +22,9 @@ const highdebtToValueThreshold = 70 / 100;
 const lowDebtToValueThreshold = 50 / 100;
 const debtToSalaryThreshold = 4.5;
 const stampFee = 825;
-const noOfApplicantsFields = 1;
+
+// Variables
+let noOfApplicantsFields = 1;
 
 // Constant DOM elements
 const purchaseForm = document.getElementById('purchase-calculator-form');
