@@ -113,6 +113,13 @@ function createNewApplicantField() {
 
 function deleteExtraApplicantsFields() {
     console.log('Deleting extra applicants fields');
+    const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
+    const applicantsFieldsdiv = document.getElementById('applicants-fields');
+    // Continue with
+    // https://stackoverflow.com/questions/39223343/shortest-way-to-get-last-element-by-class-name-in-javascript
+    if (noOfApplicantsFields === 1) {
+        deleteApplicantBtn.classList.add('hidden');
+    }
 
 }
 
