@@ -1,5 +1,3 @@
-console.log("Script loaded");
-
 // NAVBAR
 const navbarToggle = navbar.querySelector('#navbar-toggle');
 const navbarMenu = document.querySelector('#navbar-menu');
@@ -29,6 +27,8 @@ let noOfApplicantsFields = 1;
 // Constant DOM elements
 const purchaseForm = document.getElementById('purchase-calculator-form');
 const addApplicantBtn = document.getElementById('add-applicant-btn');
+const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
+
 
 // variables from Form Fields
 // NB: placeholder values for now, replace with form field values
@@ -102,7 +102,19 @@ function createNewApplicantField() {
     applicantsFieldsdiv.appendChild(newLabel);
     applicantsFieldsdiv.appendChild(newInput);
     noOfApplicantsFields += 1;
+
+    // TODO: Hide/unhide delete button
+    const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
+    if (noOfApplicantsFields > 1) {
+        console.log('No of applicants more than 1');
+        deleteApplicantBtn.classList.remove('hidden');
+    }
 };
+
+function deleteExtraApplicantsFields() {
+    console.log('Deleting extra applicants fields');
+
+}
 
 function updateCalculation() {
     console.log('Calculation updated (by function)');
@@ -112,6 +124,10 @@ function updateCalculation() {
 // Init and event listeners
 addApplicantBtn.addEventListener('click', function(event) {
     createNewApplicantField();
+})
+
+deleteApplicantBtn.addEventListener('click', function(event) {
+    deleteExtraApplicantsFields();
 })
 
 purchaseForm.addEventListener('change', function(event) {
