@@ -116,8 +116,6 @@ function deleteExtraApplicantsFields() {
     console.log('Deleting extra applicants fields');
     const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
     const applicantsFieldsdiv = document.getElementById('applicants-fields');
-    // Continue with
-    // https://stackoverflow.com/questions/39223343/shortest-way-to-get-last-element-by-class-name-in-javascript
     const lastInput = applicantsFieldsdiv.querySelectorAll('input.monthly-salaries:last-child')[0];
     const lastLabel = applicantsFieldsdiv.querySelectorAll('label:last-of-type')[0];
     if (noOfApplicantsFields > 1) {
@@ -133,6 +131,10 @@ function deleteExtraApplicantsFields() {
 
 function updateCalculation() {
     console.log('Calculation updated (by function)');
+    const results = {};
+    let interestRate = Number(document.querySelector('#interest-rate').value);
+    
+
 }
 
 
@@ -143,6 +145,7 @@ addApplicantBtn.addEventListener('click', function(event) {
 
 deleteApplicantBtn.addEventListener('click', function(event) {
     deleteExtraApplicantsFields();
+    updateCalculation();
 })
 
 purchaseForm.addEventListener('change', function(event) {
