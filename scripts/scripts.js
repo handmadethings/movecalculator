@@ -93,12 +93,13 @@ function createNewApplicantField() {
     const newLabel = document.createElement('label');
     newLabel.for = `monthly-salary-${noOfApplicantsFields}`;
     newLabel.textContent = `Månadslön för medsökande ${noOfApplicantsFields}`;
-    // newLabel.classList.add('')
+    newLabel.classList.add('monthly-salaries')
     const newInput = document.createElement('input');
     newInput.id = `monthly-salary-${noOfApplicantsFields}`;
     newInput.type = 'number';
     newInput.inputmode = 'numeric';
     newInput.placeholder = 0;
+    newInput.classList.add('monthly-salaries')
     applicantsFieldsdiv.appendChild(newLabel);
     applicantsFieldsdiv.appendChild(newInput);
     noOfApplicantsFields += 1;
@@ -117,6 +118,13 @@ function deleteExtraApplicantsFields() {
     const applicantsFieldsdiv = document.getElementById('applicants-fields');
     // Continue with
     // https://stackoverflow.com/questions/39223343/shortest-way-to-get-last-element-by-class-name-in-javascript
+    const lastInput = applicantsFieldsdiv.querySelectorAll('input.monthly-salaries:last-child')[0];
+    const lastLabel = applicantsFieldsdiv.querySelectorAll('label:last-of-type')[0];
+    if (noOfApplicantsFields > 1) {
+        lastInput.remove();
+        lastLabel.remove();
+        noOfApplicantsFields -= 1;
+    }
     if (noOfApplicantsFields === 1) {
         deleteApplicantBtn.classList.add('hidden');
     }
