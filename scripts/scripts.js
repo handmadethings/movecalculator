@@ -49,10 +49,6 @@ let combinedPretaxSalary = monthlyPretaxSalary.reduce((a, b) => a + b);
 let debtToValueRatio = (1 - (downPayment / finalPrize)).toFixed(2);
 let debtToSalaryFactor = (debt / (12 * combinedPretaxSalary)).toFixed(1);
 
-// Checks and tests
-console.log(`Belåningsgrad: ${debtToValueRatio * 100}%`);
-console.log(`skuldkvot: ${debtToSalaryFactor}`);
-
 
 let amortizationRate = 0;
 
@@ -117,7 +113,7 @@ function deleteExtraApplicantsFields() {
     console.log('Deleting extra applicants fields');
     const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
     const applicantsFieldsdiv = document.getElementById('applicants-fields');
-    const lastInput = applicantsFieldsdiv.querySelectorAll('input.monthly-salaries:last-child')[0];
+    const lastInput = applicantsFieldsdiv.querySelectorAll('input:last-child')[0];
     const lastLabel = applicantsFieldsdiv.querySelectorAll('label:last-of-type')[0];
     if (noOfApplicantsFields > 1) {
         lastInput.remove();
@@ -140,6 +136,7 @@ function updateCalculation() {
     const salaryInputs = document.querySelectorAll('.monthly-salaries-input');
     const salaryValues = Array.from(salaryInputs).map(input => Number(input.value));
     results[combinedPretaxSalary] = salaryValues.reduce((a, b) => a + b);
+    console.log(results[combinedPretaxSalary]);
 }
 
 

@@ -7,8 +7,7 @@
 * [Localized number input 2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString)
 * [Localized number input 3](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
 * [Localized number input 4](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString)
-* [Lcalized number input 5](https://stackoverflow.com/questions/13412204/localization-of-input-type-number)
-* [Localized number input 6](https://stackoverflow.com/questions/13412204/localization-of-input-type-number#13416324)
+* [Localized number input 5](https://stackoverflow.com/questions/13412204/localization-of-input-type-number#13416324)
 * Fix number formating for swedish locale
 * Separate html files for each type of calculation
 * Separate html file with wiki over different terms, instructions etc. # for headings to link from main document/forms
