@@ -99,7 +99,7 @@ function createNewApplicantField() {
     newInput.type = 'number';
     newInput.inputmode = 'numeric';
     newInput.placeholder = 0;
-    newInput.classList.add('monthly-salaries')
+    newInput.classList.add('monthly-salaries-input')
     applicantsFieldsdiv.appendChild(newLabel);
     applicantsFieldsdiv.appendChild(newInput);
     noOfApplicantsFields += 1;
@@ -136,8 +136,10 @@ function updateCalculation() {
     console.log('Calculation updated (by function)');
     const results = {};
     let interestRate = Number(document.querySelector('#interest-rate').value);
-    
-
+    // Combined pretax salary
+    const salaryInputs = document.querySelectorAll('.monthly-salaries-input');
+    const salaryValues = Array.from(salaryInputs).map(input => Number(input.value));
+    results[combinedPretaxSalary] = salaryValues.reduce((a, b) => a + b);
 }
 
 
