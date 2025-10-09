@@ -91,11 +91,11 @@ function createNewApplicantField() {
     let applicantsFieldsdiv = document.getElementById('applicants-fields');
 
     const newLabel = document.createElement('label');
-    newLabel.for = `monthly-salary-${noOfApplicantsFields}`;
+    newLabel.htmlFor = `monthly-salary-${noOfApplicantsFields + 1}`;
     newLabel.textContent = `Månadslön för medsökande ${noOfApplicantsFields}`;
     newLabel.classList.add('monthly-salaries')
     const newInput = document.createElement('input');
-    newInput.id = `monthly-salary-${noOfApplicantsFields}`;
+    newInput.id = `monthly-salary-${noOfApplicantsFields + 1}`;
     newInput.type = 'number';
     newInput.inputmode = 'numeric';
     newInput.placeholder = 0;
@@ -110,6 +110,7 @@ function createNewApplicantField() {
         console.log('No of applicants more than 1');
         deleteApplicantBtn.classList.remove('hidden');
     }
+    console.log(`nOfApplicantsFields variable: ${noOfApplicantsFields}`);
 };
 
 function deleteExtraApplicantsFields() {
@@ -126,6 +127,8 @@ function deleteExtraApplicantsFields() {
     if (noOfApplicantsFields === 1) {
         deleteApplicantBtn.classList.add('hidden');
     }
+
+    console.log(`nOfApplicantsFields variable: ${noOfApplicantsFields}`);
 
 }
 
