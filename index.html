@@ -5,7 +5,8 @@
         <title>Flyttkalkylatorn</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="styles/styles.css">
-        <script defer src="scripts/scripts.js"></script>
+        <script defer src="scripts/autoNumeric.min.js" type="text/javascript"></script>
+        <script defer src="scripts/scripts.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -55,19 +56,19 @@
            <form id="purchase-calculator-form">
             <div id="applicants-fields">
                 <label class="monthly-salaries" for="monthly-salary-1">Månadslön för sökande</label>
-                <input class="monthly-salaries-input" id="monthly-salary-1" type="number" inputmode="numeric" placeholder=0 min="0" lang="sv">
+                <input class="monthly-salaries-input" id="monthly-salary-1" type="text" inputmode="numeric" placeholder=0 min="0" lang="sv">
             </div>
                 <input type="button" id="add-applicant-btn" value="Lägg till medsökande" class="button">
                 <input type="button" id="delete-applicant-btn" value="Ta bort medsökande" class="button hidden">
 
                 <label for="interest-rate">Ränta</label>
-                <input id="interest-rate" type="number" inputmode="numeric" placeholder=0 step="0.01" min="0" max="100">
+                <input id="interest-rate" type="text" inputmode="numeric" placeholder=0 min="0" max="100">
 
                 <label for="purchase-prize">Pris ny bostad</label>
-                <input id="purchase-prize" type="number" inputmode="numeric" placeholder=0>
+                <input id="purchase-prize" type="text" inputmode="numeric" placeholder=0>
                 
                 <label for="down-payment">Eget kapital</label>
-                <input id="down-payment" type="number" inputmode="numeric" placeholder=0>
+                <input id="down-payment" type="text" inputmode="numeric" placeholder=0>
 
             </form>
         </main>

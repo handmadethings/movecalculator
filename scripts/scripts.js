@@ -21,8 +21,10 @@ const lowDebtToValueThreshold = 50 / 100;
 const debtToSalaryThreshold = 4.5;
 const stampFee = 825;
 
+
 // Variables
 let noOfApplicantsFields = 1;
+
 
 // Constant DOM elements
 const purchaseForm = document.getElementById('purchase-calculator-form');
@@ -30,12 +32,32 @@ const addApplicantBtn = document.getElementById('add-applicant-btn');
 const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
 
 
+// autoNumeric initializations
+const interestRateInput = new AutoNumeric(document.querySelector('#interest-rate'), {
+    alwaysAllowDecimalCharacter: true,
+    decimalCharacter: ",",
+    digitGroupSeparator: " ",
+    suffixText: "%"
+});
+
+const purchasePrize = new AutoNumeric(document.querySelector('#purchase-prize'), {
+    alwaysAllowDecimalCharacter: false,
+    digitGroupSeparator: " ",
+    suffixText: " kr"
+});
+
+const downPayment = new AutoNumeric(document.querySelector('#down-payment'), {
+    alwaysAllowDecimalCharacter: false,
+    digitGroupSeparator: " ",
+    suffixText: " kr"
+});
+
+
+
 // variables from Form Fields
 // NB: placeholder values for now, replace with form field values
-let interestRate = 3 / 100;
+// let interestRate = 3 / 100;
 let monthlyPretaxSalary = [4000, 35000];
-let finalPrize = 8800000;
-let downPayment = 3277000 + 500000;
 let fee = 3000;
 // Taxeringsvärde
 let taxationValue = 7467000;
@@ -43,10 +65,10 @@ let taxationValue = 7467000;
 let mortgage = 2551100;
 
 // Calculations
-let debt = finalPrize - downPayment;
+let debt = purchasePrize - downPayment;
 let combinedPretaxSalary = monthlyPretaxSalary.reduce((a, b) => a + b);
 
-let debtToValueRatio = (1 - (downPayment / finalPrize)).toFixed(2);
+let debtToValueRatio = (1 - (downPayment / purchasePrize)).toFixed(2);
 let debtToSalaryFactor = (debt / (12 * combinedPretaxSalary)).toFixed(1);
 
 
@@ -69,12 +91,12 @@ if (debtToSalaryFactor > debtToSalaryThreshold) {
     amortizationRate += 1;
 }
 
-let yearlyInterest = interestRate * debt;
+// let yearlyInterest = interestRate * debt;
 let yearlyAmortization = (amortizationRate / 100) * debt;
-let totalMonthlyCost = ((yearlyInterest + yearlyAmortization) / 12).toFixed(0);
-console.log(`Månadskostnad: ${totalMonthlyCost}`);
+// let totalMonthlyCost = ((yearlyInterest + yearlyAmortization) / 12).toFixed(0);
+// console.log(`Månadskostnad: ${totalMonthlyCost}`);
 
-let stampTax = 0.015 * Math.max(finalPrize, taxationValue) + stampFee + 0.02 * (debt - mortgage);
+let stampTax = 0.015 * Math.max(purchasePrize, taxationValue) + stampFee + 0.02 * (debt - mortgage);
 
 console.log(`Stämpelskatt: ${stampTax}`);
 
@@ -92,7 +114,7 @@ function createNewApplicantField() {
     newLabel.classList.add('monthly-salaries')
     const newInput = document.createElement('input');
     newInput.id = `monthly-salary-${noOfApplicantsFields + 1}`;
-    newInput.type = 'number';
+    newInput.type = 'text';
     newInput.inputmode = 'numeric';
     newInput.placeholder = 0;
     newInput.classList.add('monthly-salaries-input')
@@ -131,11 +153,11 @@ function deleteExtraApplicantsFields() {
 function updateCalculation() {
     console.log('Calculation updated (by function)');
     const results = {};
-    let interestRate = Number(document.querySelector('#interest-rate').value);
     // Combined pretax salary
     const salaryInputs = document.querySelectorAll('.monthly-salaries-input');
     const salaryValues = Array.from(salaryInputs).map(input => Number(input.value));
     results[combinedPretaxSalary] = salaryValues.reduce((a, b) => a + b);
+    results[interestRate] = interestRateInput.getNumber() / 100;
     console.log(results[combinedPretaxSalary]);
 }
 
