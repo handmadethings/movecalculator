@@ -34,6 +34,7 @@ const applicantsFieldsdiv = document.getElementById('applicants-fields');
 
 
 // autoNumeric initializations
+// TODO: Create AutoNumerics for salary inputs
 const interestRateInput = new AutoNumeric(document.querySelector('#interest-rate'), {
     alwaysAllowDecimalCharacter: true,
     decimalCharacter: ",",
@@ -106,35 +107,27 @@ function showNewApplicantField() {
     if (noOfApplicantsFields > 3) {
         return;
     }
-    console.log('Adding new applicant field');
     let applicantsFieldsdiv = document.getElementById('applicants-fields');
     const nextApplicantFieldDiv = applicantsFieldsdiv.querySelectorAll('.applicant-label-input')[noOfApplicantsFields - 1];
     nextApplicantFieldDiv.classList.remove('display-none');
     noOfApplicantsFields += 1;
 
     if (noOfApplicantsFields > 1) {
-        console.log('No of applicants more than 1');
         deleteApplicantBtn.classList.remove('hidden');
     }
-    console.log(`nOfApplicantsFields variable: ${noOfApplicantsFields}`);
 };
 
 function deleteExtraApplicantsFields() {
     // TODO: Set the fields' value to zero when hiding them
-    console.log('Deleting extra applicants fields');
     let applicantsFieldsdiv = document.getElementById('applicants-fields');
     if (noOfApplicantsFields > 1) {
         const lastApplicantFieldDiv = applicantsFieldsdiv.querySelectorAll('.applicant-label-input')[noOfApplicantsFields - 2];
         lastApplicantFieldDiv.classList.add('display-none');
-        lastApplicantFieldDiv.classList.add('test');
         noOfApplicantsFields -= 1;
     }
     if (noOfApplicantsFields === 1) {
         deleteApplicantBtn.classList.add('hidden');
     }
-
-    console.log(`nOfApplicantsFields variable: ${noOfApplicantsFields}`);
-
 }
 
 function updateCalculation() {
