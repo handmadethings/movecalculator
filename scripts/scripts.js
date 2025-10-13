@@ -30,6 +30,7 @@ let noOfApplicantsFields = 1;
 const purchaseForm = document.getElementById('purchase-calculator-form');
 const addApplicantBtn = document.getElementById('add-applicant-btn');
 const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
+const applicantsFieldsdiv = document.getElementById('applicants-fields');
 
 
 // autoNumeric initializations
@@ -101,29 +102,16 @@ let stampTax = 0.015 * Math.max(purchasePrize, taxationValue) + stampFee + 0.02 
 console.log(`Stämpelskatt: ${stampTax}`);
 
 // Functions
-function createNewApplicantField() {
+function showNewApplicantField() {
     if (noOfApplicantsFields > 3) {
         return;
     }
     console.log('Adding new applicant field');
     let applicantsFieldsdiv = document.getElementById('applicants-fields');
-
-    const newLabel = document.createElement('label');
-    newLabel.htmlFor = `monthly-salary-${noOfApplicantsFields + 1}`;
-    newLabel.textContent = `Månadslön för medsökande ${noOfApplicantsFields}`;
-    newLabel.classList.add('monthly-salaries')
-    const newInput = document.createElement('input');
-    newInput.id = `monthly-salary-${noOfApplicantsFields + 1}`;
-    newInput.type = 'text';
-    newInput.inputmode = 'numeric';
-    newInput.placeholder = 0;
-    newInput.classList.add('monthly-salaries-input')
-    applicantsFieldsdiv.appendChild(newLabel);
-    applicantsFieldsdiv.appendChild(newInput);
+    const nextApplicantFieldDiv = applicantsFieldsdiv.querySelectorAll('.applicant-label-input')[noOfApplicantsFields - 1];
+    nextApplicantFieldDiv.classList.remove('display-none');
     noOfApplicantsFields += 1;
 
-    // TODO: Hide/unhide delete button
-    const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
     if (noOfApplicantsFields > 1) {
         console.log('No of applicants more than 1');
         deleteApplicantBtn.classList.remove('hidden');
@@ -132,14 +120,13 @@ function createNewApplicantField() {
 };
 
 function deleteExtraApplicantsFields() {
+    // TODO: Set the fields' value to zero when hiding them
     console.log('Deleting extra applicants fields');
-    const deleteApplicantBtn = document.getElementById('delete-applicant-btn')
-    const applicantsFieldsdiv = document.getElementById('applicants-fields');
-    const lastInput = applicantsFieldsdiv.querySelectorAll('input:last-child')[0];
-    const lastLabel = applicantsFieldsdiv.querySelectorAll('label:last-of-type')[0];
+    let applicantsFieldsdiv = document.getElementById('applicants-fields');
     if (noOfApplicantsFields > 1) {
-        lastInput.remove();
-        lastLabel.remove();
+        const lastApplicantFieldDiv = applicantsFieldsdiv.querySelectorAll('.applicant-label-input')[noOfApplicantsFields - 2];
+        lastApplicantFieldDiv.classList.add('display-none');
+        lastApplicantFieldDiv.classList.add('test');
         noOfApplicantsFields -= 1;
     }
     if (noOfApplicantsFields === 1) {
@@ -153,18 +140,20 @@ function deleteExtraApplicantsFields() {
 function updateCalculation() {
     console.log('Calculation updated (by function)');
     const results = {};
+    const interestRate = interestRateInput.getNumber() / 100;
     // Combined pretax salary
     const salaryInputs = document.querySelectorAll('.monthly-salaries-input');
     const salaryValues = Array.from(salaryInputs).map(input => Number(input.value));
     results[combinedPretaxSalary] = salaryValues.reduce((a, b) => a + b);
     results[interestRate] = interestRateInput.getNumber() / 100;
     console.log(results[combinedPretaxSalary]);
+    console.log(results[interestRate]);
 }
 
 
 // Init and event listeners
 addApplicantBtn.addEventListener('click', function(event) {
-    createNewApplicantField();
+    showNewApplicantField();
 })
 
 deleteApplicantBtn.addEventListener('click', function(event) {

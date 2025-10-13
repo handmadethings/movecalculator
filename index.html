@@ -56,7 +56,21 @@
            <form id="purchase-calculator-form">
             <div id="applicants-fields">
                 <label class="monthly-salaries" for="monthly-salary-1">Månadslön för sökande</label>
-                <input class="monthly-salaries-input" id="monthly-salary-1" type="text" inputmode="numeric" placeholder=0 min="0" lang="sv">
+                <input class="monthly-salaries-input" id="monthly-salary-1" type="text" inputmode="numeric">
+                
+                <div class="applicant-label-input display-none">
+                    <label class="monthly-salaries" for="monthly-salary-2">Månadslön för medsökande 1</label>
+                    <input class="monthly-salaries-input" id="monthly-salary-2" type="text" inputmode="numeric">
+                </div>
+                <div class="applicant-label-input display-none">
+                    <label class="monthly-salaries" for="monthly-salary-3">Månadslön för medsökande 2</label>
+                    <input class="monthly-salaries-input" id="monthly-salary-3" type="text" inputmode="numeric">
+                </div>
+
+                <div class="applicant-label-input display-none">
+                    <label class="monthly-salaries" for="monthly-salary-4">Månadslön för medsökande 3</label>
+                    <input class="monthly-salaries-input" id="monthly-salary-4" type="text" inputmode="numeric">
+                </div>
             </div>
                 <input type="button" id="add-applicant-btn" value="Lägg till medsökande" class="button">
                 <input type="button" id="delete-applicant-btn" value="Ta bort medsökande" class="button hidden">
